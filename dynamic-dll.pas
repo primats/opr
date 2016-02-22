@@ -14,7 +14,7 @@ exports Summ;
 begin
 end.
 
-**********************************************************
+// **********************************************************
 
 unit UnitDin;
 
@@ -32,7 +32,7 @@ type
   procedure Button1Click(Sender: TObject);
 
   private
-    Summ: TAddIntegers;																						//определение типа функции
+    Summ: TAddIntegers;	//определение типа функции
     { Private declarations }
   public
     { Public declarations }
@@ -49,15 +49,15 @@ var
   r:integer;
   Handle: LongWord;
 begin
-  Handle:=LoadLibrary('TwoDLLProject.dll');      //загрузка библиотеки
+  Handle:=LoadLibrary('TwoDLLProject.dll'); //загрузка библиотеки
   if (Handle=0) then
       begin
         ShowMessage('Библиотека TwoDLLProject.dll не найдена');
       Halt;
     end;
-  @Summ:=GetProcAddress(Handle,'Summ');   // получение указателя на функцию
-  r:=Summ(12,20);																					// вызов функции
-  ShowMessage(IntToStr(r));													// преобразование типа и вывод рез-та
-  FreeLibrary(Handle);																	// выгрузка библиотеки
+  @Summ:=GetProcAddress(Handle,'Summ');// получение указателя на функцию
+  r:=Summ(12,20);	// вызов функции
+  ShowMessage(IntToStr(r));	// преобразование типа и вывод рез-та
+  FreeLibrary(Handle); // выгрузка библиотеки
 end;
 end.
